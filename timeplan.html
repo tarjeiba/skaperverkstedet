@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="no" xml:lang="no">
 <head>
-<!-- 2019-11-04 Mon 09:32 -->
+<!-- 2019-11-04 Mon 09:34 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Timeplan</title>
@@ -92,6 +92,14 @@ function decreaseWeek() {
     yearWeekString = `${year}-${week}`;
 }
 
+var today = new Date();
+var thisWeek = today.getWeekNumber();
+var week = thisWeek;
+var thisYear = today.getFullYear();
+var year = thisYear;
+var thisYearWeekString = `${thisYear}-${thisWeek}`;
+var yearWeekString = thisYearWeekString;
+
 window.onload = function() {
     var neste = document.getElementById("lenkeNesteUke");
     var forrige = document.getElementById("lenkeForrigeUke");
@@ -109,14 +117,6 @@ window.onload = function() {
 	setTableAndHeadingVisible(yearWeekString);
 	return false;
     };
-    
-    var today = new Date();
-    var thisWeek = today.getWeekNumber();
-    var week = thisWeek;
-    var thisYear = today.getFullYear();
-    var year = thisYear;
-    var thisYearWeekString = `${thisYear}-${thisWeek}`;
-    var yearWeekString = thisYearWeekString;
 
     let tables = document.getElementsByTagName("table");
     
