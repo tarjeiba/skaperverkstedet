@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="no" xml:lang="no">
 <head>
-<!-- 2019-11-04 Mon 09:34 -->
+<!-- 2019-11-04 Mon 10:52 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Timeplan</title>
@@ -124,9 +124,9 @@ window.onload = function() {
 	let tds = table.getElementsByTagName("td");
 	for (let td of tds) {
 	    let text = td.innerHTML;
-	    if (text == "Generativ") {
-		td.bgColor = "Dark Gray";
-	    }
+	    if (text == "Generativ") {td.bgColor = "Viloet"; }
+	    else if (text == "Plotter") {td.bgColor = "OliveDrab";}
+	    else if (text == "Stengt") {td.bgColor = "Red";}
 	}
     }
 
@@ -147,6 +147,12 @@ window.onload = function() {
 
 };
 </script>
+
+<dl class="org-dl">
+<dt>Stengt</dt><dd>Skaperverkstedet er kun tilgjengelig om du er der med en lærer som har klarering</dd>
+<dt>Plotter / 3D-printer / Laserkutter</dt><dd>Arbeidsplassene er sannsynligvis tatt til å jobbe med den nevnte maskinen, men du kan komme for å bruke en annen</dd>
+</dl>
+
 
 <a id="lenkeForrigeUke" href="#">Forrige</a>   <a id="lenkeNesteUke" href="#">Neste</a>
 <div id="outline-container-org59b6b62" class="outline-2">
@@ -201,7 +207,7 @@ window.onload = function() {
 <td class="org-right">Langfri</td>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
-<td class="org-left">Generativ</td>
+<td class="org-left"><a href="prosjekter.html#org42d85cd">Generativ</a></td>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 </tr>
@@ -280,7 +286,7 @@ window.onload = function() {
 <td class="org-right">Langfri</td>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
-<td class="org-left">Generativ</td>
+<td class="org-left"><a href="prosjekter.html#org42d85cd">Generativ</a></td>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 </tr>

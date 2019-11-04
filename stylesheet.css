@@ -9,8 +9,6 @@ p {
     color: #2c3e50;n
 }
 pre  {
-    /* border-top: 1px solid #ccc; */
-    /* border-bottom: 1px solid #ccc; */
     border: 1px solid #cdcdcd;
     border-radius: 4px;
     background-color: #ecf0f1;
@@ -220,19 +218,19 @@ dl {
 }
 dt {
   float: left;
-  width: 5%;
+  width: 15%;
   /* adjust the width; make sure the total of both is 100% */
   padding: 0;
 }
 
-dt:after {
-    content: ")";
-}
+/* dt:after { */
+/*     content: ")"; */
+/* } */
 		 
 
 dd {
   float: left;
-  width: 95%;
+  width: 85%;
   /* adjust the width; make sure the total of both is 100% */
   /* background: #dd0 */
   padding: 0;
