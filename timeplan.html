@@ -3,13 +3,13 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="no" xml:lang="no">
 <head>
-<!-- 2019-11-04 Mon 08:36 -->
+<!-- 2019-11-04 Mon 09:30 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Timeplan</title>
 <meta name="generator" content="Org mode" />
 <link rel="icon" type="image/x-icon" href="favicon.ico">
-<link rel="stylesheet" type="text/css" href="css/stylesheet.css">
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
 <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
 <link href='https://fonts.googleapis.com/css?family=Source Code Pro' rel='stylesheet'>
 <script type="text/javascript">
@@ -58,386 +58,108 @@ for the JavaScript code in this tag.
  }
 /*]]>*///-->
 </script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="content">
 <h1 class="title">Timeplan</h1>
-<script>
+<p>
+Date.prototype.getWeekNumber = function() {
+    let d = new Date(Date.UTC(this.getFullYear(), this.getMonth(), this.getDate()));
+    let dayNum = d.getUTCDay() || 7;
+    d.setUTCDate(d.getUTCDate() + 4 - dayNum);
+    let yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
+    return Math.ceil((((d - yearStart) / 86400000) + 1) / 7);
+};
+</p>
+
+<p>
 function setTableAndHeadingInvisible(yearWeekIdOfHeading) {
-let element = document.getElementById(yearWeekIdOfHeading);
-element.parentNode.style.display = 'none';
-return true;
+    let element = document.getElementById(yearWeekIdOfHeading);
+    element.parentNode.style.display = 'none';
+    return true;
 }
 function setTableAndHeadingVisible(yearWeekIdOfHeading) {
-let element = document.getElementById(yearWeekIdOfHeading);
-element.parentNode.style.display = 'block';
-return true;
+    let element = document.getElementById(yearWeekIdOfHeading);
+    element.parentNode.style.display = 'block';
+    return true;
 }
+</p>
 
+<p>
 function increaseWeek() {
-week += 1;
-yearWeekString = `${year}-${week}`
+    week += 1;
+    yearWeekString = `\({year}-\){week}`;
 }
+</p>
 
+<p>
 function decreaseWeek() {
-week -= 1;
-yearWeekString = `${year}-${week}`
+    week -= 1;
+    yearWeekString = `\({year}-\){week}`;
 }
+</p>
 
-
+<p>
 window.onload = function() {
-var neste = document.getElementById("lenkeNesteUke");
-var forrige = document.getElementById("lenkeForrigeUke");
+    var neste = document.getElementById("lenkeNesteUke");
+    var forrige = document.getElementById("lenkeForrigeUke");
+</p>
 
+<p>
 neste.onclick = function() {
-setTableAndHeadingInvisible(yearWeekString);
-increaseWeek();
-setTableAndHeadingVisible(yearWeekString);
-return false;
-}
-
-forrige.onclick = function() {
-setTableAndHeadingInvisible(yearWeekString);
-decreaseWeek();
-setTableAndHeadingVisible(yearWeekString);
-return false;
-}
-}
-Date.prototype.getWeekNumber = function() {
-  let d = new Date(Date.UTC(this.getFullYear(), this.getMonth(), this.getDate()));
-  let dayNum = d.getUTCDay() || 7;
-  d.setUTCDate(d.getUTCDate() + 4 - dayNum);
-  let yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
-  return Math.ceil((((d - yearStart) / 86400000) + 1) / 7)
+    setTableAndHeadingInvisible(yearWeekString);
+    increaseWeek();
+    setTableAndHeadingVisible(yearWeekString);
+    return false;
 };
+</p>
 
+<p>
+forrige.onclick = function() {
+    setTableAndHeadingInvisible(yearWeekString);
+    decreaseWeek();
+    setTableAndHeadingVisible(yearWeekString);
+    return false;
+};
+</p>
+
+<p>
 var today = new Date();
 var thisWeek = today.getWeekNumber();
 var week = thisWeek;
 var thisYear = today.getFullYear();
 var year = thisYear;
-var thisYearWeekString = `${thisYear}-${thisWeek}`
+var thisYearWeekString = `\({thisYear}-\){thisWeek}`;
 var yearWeekString = thisYearWeekString;
-</script>
+</p>
 
-<a id="lenkeForrigeUke" href="#">Forrige</a>   <a id="lenkeNesteUke" href="#">Neste</a>
-<div id="outline-container-org043b6b4" class="outline-2">
-<h2 id="2019-43"><a id="org043b6b4"></a>Uke 43</h2>
-<div class="outline-text-2" id="text-2019-43">
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-right" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-</colgroup>
-<thead>
-<tr>
-<th scope="col" class="org-right">Tid</th>
-<th scope="col" class="org-left">Mandag</th>
-<th scope="col" class="org-left">Tirsdag</th>
-<th scope="col" class="org-left">Onsdag</th>
-<th scope="col" class="org-left">Torsdag</th>
-<th scope="col" class="org-left">Fredag</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="org-right">8:15</td>
-<td class="org-left">Stengt</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-right">10:00</td>
-<td class="org-left">Stengt</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-right">Langfri</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">Generativ</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-right">12:15</td>
-<td class="org-left">Stengt</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-right">14:00</td>
-<td class="org-left">Stengt</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-
-<div id="outline-container-org2003953" class="outline-2">
-<h2 id="2019-44"><a id="org2003953"></a>Uke 44</h2>
-<div class="outline-text-2" id="text-2019-44">
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-right" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-</colgroup>
-<thead>
-<tr>
-<th scope="col" class="org-right">Tid</th>
-<th scope="col" class="org-left">Mandag</th>
-<th scope="col" class="org-left">Tirsdag</th>
-<th scope="col" class="org-left">Onsdag</th>
-<th scope="col" class="org-left">Torsdag</th>
-<th scope="col" class="org-left">Fredag</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="org-right">8:15</td>
-<td class="org-left">Stengt</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-right">10:00</td>
-<td class="org-left">Stengt</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-right">Langfri</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">Generativ</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-right">12:15</td>
-<td class="org-left">Stengt</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-right">14:00</td>
-<td class="org-left">Stengt</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-
-<div id="outline-container-org3cbe7e9" class="outline-2">
-<h2 id="2019-45"><a id="org3cbe7e9"></a>Uke 45</h2>
-<div class="outline-text-2" id="text-2019-45">
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-right" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-</colgroup>
-<thead>
-<tr>
-<th scope="col" class="org-right">Tid</th>
-<th scope="col" class="org-left">Mandag</th>
-<th scope="col" class="org-left">Tirsdag</th>
-<th scope="col" class="org-left">Onsdag</th>
-<th scope="col" class="org-left">Torsdag</th>
-<th scope="col" class="org-left">Fredag</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="org-right">8:15</td>
-<td class="org-left">Stengt</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-right">10:00</td>
-<td class="org-left">Stengt</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-right">Langfri</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">Generativ</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-right">12:15</td>
-<td class="org-left">Stengt</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-right">14:00</td>
-<td class="org-left">Stengt</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-
-<div id="outline-container-orge1ad35e" class="outline-2">
-<h2 id="2019-46"><a id="orge1ad35e"></a>Uke 46</h2>
-<div class="outline-text-2" id="text-2019-46">
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-right" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-</colgroup>
-<thead>
-<tr>
-<th scope="col" class="org-right">Tid</th>
-<th scope="col" class="org-left">Mandag</th>
-<th scope="col" class="org-left">Tirsdag</th>
-<th scope="col" class="org-left">Onsdag</th>
-<th scope="col" class="org-left">Torsdag</th>
-<th scope="col" class="org-left">Fredag</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="org-right">8:15</td>
-<td class="org-left">Stengt</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-right">10:00</td>
-<td class="org-left">Stengt</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-right">Langfri</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">Generativ</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-right">12:15</td>
-<td class="org-left">Stengt</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-right">14:00</td>
-<td class="org-left">Stengt</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-</tbody>
-</table>
-
-<script>
+<p>
 let tables = document.getElementsByTagName("table");
+</p>
 
+<p>
 for (let table of tables) {
     let tds = table.getElementsByTagName("td");
     for (let td of tds) {
@@ -447,23 +169,30 @@ for (let table of tables) {
 	}
     }
 }
+</p>
 
-for (let year = 2019; year <= thisYear; year++) {
-    for (let week = 1; week <= 52; week++) {
-
-	let yearWeekString = `${year}-${week}`
+<p>
+for (let year = 2019; year &lt;= thisYear; year++) {
+    for (let week = 1; week &lt;= 52; week++) {
+	let yearWeekString = `\({year}-\){week}`;
 	if (yearWeekString != thisYearWeekString) {
-	try {
-setTableAndHeadingInvisible(yearWeekString) 
-}
+	    try {
+		setTableAndHeadingInvisible(yearWeekString);
+	    }
+</p>
 
-catch(err) {null};
+<p>
+	    catch(err) {
+		// Ignore in case of malformed yearWeekString
+	    };
 	}
     }
 }
-</script>
-</div>
-</div>
+</p>
+
+<p>
+};
+</p>
 </div>
 </body>
 </html>
