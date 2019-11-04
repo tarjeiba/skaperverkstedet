@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="no" xml:lang="no">
 <head>
-<!-- 2019-10-29 Tue 15:00 -->
+<!-- 2019-10-30 Wed 21:50 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Timeplan</title>
@@ -11,79 +11,6 @@
 <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
 <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
 <link href='https://fonts.googleapis.com/css?family=Source Code Pro' rel='stylesheet'>
-<script type="text/javascript" src="js/popup.js"></script>
-
-<script type="text/javascript" src="js/org-info-js-nb/org-info.js">
-/**
- *
- * @source: js/org-info-js-nb/org-info.js
- *
- * @licstart  The following is the entire license notice for the
- *  JavaScript code in js/org-info-js-nb/org-info.js.
- *
- * Copyright (C) 2012-2018 Free Software Foundation, Inc.
- *
- *
- * The JavaScript code in this tag is free software: you can
- * redistribute it and/or modify it under the terms of the GNU
- * General Public License (GNU GPL) as published by the Free Software
- * Foundation, either version 3 of the License, or (at your option)
- * any later version.  The code is distributed WITHOUT ANY WARRANTY;
- * without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
- *
- * As additional permission under GNU GPL version 3 section 7, you
- * may distribute non-source (e.g., minimized or compacted) forms of
- * that code without the copy of the GNU GPL normally required by
- * section 4, provided you include this license notice and a URL
- * through which recipients can access the Corresponding Source.
- *
- * @licend  The above is the entire license notice
- * for the JavaScript code in js/org-info-js-nb/org-info.js.
- *
- */
-</script>
-
-<script type="text/javascript">
-
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
-
-Copyright (C) 2012-2018 Free Software Foundation, Inc.
-
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
-
-<!--/*--><![CDATA[/*><!--*/
-org_html_manager.set("TOC_DEPTH", "1");
-org_html_manager.set("LINK_HOME", "");
-org_html_manager.set("LINK_UP", "");
-org_html_manager.set("LOCAL_TOC", "1");
-org_html_manager.set("VIEW_BUTTONS", "0");
-org_html_manager.set("MOUSE_HINT", "underline");
-org_html_manager.set("FIXED_TOC", "0");
-org_html_manager.set("TOC", "0");
-org_html_manager.set("VIEW", "info");
-org_html_manager.setup();  // activate after the parameters are set
-/*]]>*///-->
-</script>
 <script type="text/javascript">
 /*
 @licstart  The following is the entire license notice for the
@@ -134,20 +61,138 @@ for the JavaScript code in this tag.
 <body>
 <div id="content">
 <h1 class="title">Timeplan</h1>
-<div id="table-of-contents">
-<h2>Innhold</h2>
-<div id="text-table-of-contents">
-<ul>
-<li><a href="#org2003953">Uke 44</a></li>
-<li><a href="#org3cbe7e9">Uke 45</a></li>
-<li><a href="#orge1ad35e">Uke 46</a></li>
-</ul>
+<script>
+function setTableAndHeadingInvisible(yearWeekIdOfHeading) {
+let element = document.getElementById(yearWeekIdOfHeading);
+element.parentNode.style.display = 'none';
+return true;
+}
+function setTableAndHeadingVisible(yearWeekIdOfHeading) {
+let element = document.getElementById(yearWeekIdOfHeading);
+element.parentNode.style.display = 'block';
+return true;
+}
+
+function increaseWeek(week) {
+return week + 1
+}
+
+function decreaseWeek(week) {
+return week - 1
+}
+
+
+window.onload = function() {
+var neste = document.getElementById("lenkeNesteUke");
+var forrige = document.getElementById("lenkeForrigeUke");
+
+neste.onclick = function() {
+return false;
+}
+
+forrige.onclick = function() {
+return false;
+}
+
+Date.prototype.getWeekNumber = function() {
+  let d = new Date(Date.UTC(this.getFullYear(), this.getMonth(), this.getDate()));
+  let dayNum = d.getUTCDay() || 7;
+  d.setUTCDate(d.getUTCDate() + 4 - dayNum);
+  let yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
+  return Math.ceil((((d - yearStart) / 86400000) + 1) / 7)
+};
+
+var today = new Date();
+var thisWeek = today.getWeekNumber();
+var week = thisWeek;
+var thisYear = today.getFullYear();
+var year = thisYear;
+var thisYearWeekString = `${thisYear}-${thisWeek}`
+</script>
+
+<a id="lenkeForrigeUke" href="#">Forrige</a>   <a id="lenkeNesteUke" href="#">Neste</a>
+<div id="outline-container-org043b6b4" class="outline-2">
+<h2 id="2019-43"><a id="org043b6b4"></a>Uke 43</h2>
+<div class="outline-text-2" id="text-2019-43">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">Tid</th>
+<th scope="col" class="org-left">Mandag</th>
+<th scope="col" class="org-left">Tirsdag</th>
+<th scope="col" class="org-left">Onsdag</th>
+<th scope="col" class="org-left">Torsdag</th>
+<th scope="col" class="org-left">Fredag</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">8:15</td>
+<td class="org-left">Stengt</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">10:00</td>
+<td class="org-left">Stengt</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">Langfri</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Generativ</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">12:15</td>
+<td class="org-left">Stengt</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">14:00</td>
+<td class="org-left">Stengt</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 
 <div id="outline-container-org2003953" class="outline-2">
-<h2 id="org2003953">Uke 44</h2>
-<div class="outline-text-2" id="text-org2003953">
+<h2 id="2019-44"><a id="org2003953"></a>Uke 44</h2>
+<div class="outline-text-2" id="text-2019-44">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -225,8 +270,8 @@ for the JavaScript code in this tag.
 </div>
 
 <div id="outline-container-org3cbe7e9" class="outline-2">
-<h2 id="org3cbe7e9">Uke 45</h2>
-<div class="outline-text-2" id="text-org3cbe7e9">
+<h2 id="2019-45"><a id="org3cbe7e9"></a>Uke 45</h2>
+<div class="outline-text-2" id="text-2019-45">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -244,6 +289,15 @@ for the JavaScript code in this tag.
 <col  class="org-left" />
 </colgroup>
 <thead>
+<tr>
+<th scope="col" class="org-right">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+</tr>
+
 <tr>
 <th scope="col" class="org-right">Tid</th>
 <th scope="col" class="org-left">Mandag</th>
@@ -304,8 +358,8 @@ for the JavaScript code in this tag.
 </div>
 
 <div id="outline-container-orge1ad35e" class="outline-2">
-<h2 id="orge1ad35e">Uke 46</h2>
-<div class="outline-text-2" id="text-orge1ad35e">
+<h2 id="2019-46"><a id="orge1ad35e"></a>Uke 46</h2>
+<div class="outline-text-2" id="text-2019-46">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -380,11 +434,6 @@ for the JavaScript code in this tag.
 </tbody>
 </table>
 
-
-<p>
-Kjør følgende idiotiske skript for å sette farge:
-</p>
-
 <script>
 let tables = document.getElementsByTagName("table");
 
@@ -393,7 +442,21 @@ for (let table of tables) {
     for (let td of tds) {
 	let text = td.innerHTML;
 	if (text == "Generativ") {
-	    td.bgColor = "Yellow";
+	    td.bgColor = "Dark Gray";
+	}
+    }
+}
+
+for (let year = 2019; year <= thisYear; year++) {
+    for (let week = 1; week <= 52; week++) {
+
+	let yearWeekString = `${year}-${week}`
+	if (yearWeekString != thisYearWeekString) {
+	try {
+setTableAndHeadingInvisible(yearWeekString) 
+}
+
+catch(err) {null};
 	}
     }
 }
