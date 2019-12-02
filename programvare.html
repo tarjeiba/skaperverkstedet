@@ -6,7 +6,7 @@
 <!-- 2019-12-02 Mon 10:00 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Utstyrsliste</title>
+<title>Programvare</title>
 <meta name="generator" content="Org mode" />
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 <link rel="stylesheet" type="text/css" href="stylesheet.css">
@@ -70,25 +70,49 @@ for the JavaScript code in this tag.
 </div>
 </div>
 <div id="content">
-<h1 class="title">Utstyrsliste</h1>
+<h1 class="title">Programvare</h1>
 
-<div id="outline-container-org2a32ea7" class="outline-2">
-<h2 id="org2a32ea7">Plotter</h2>
+<div id="outline-container-orgd685098" class="outline-2">
+<h2 id="orgd685098">Inkscape</h2>
+<div class="outline-text-2" id="text-orgd685098">
+<dl class="org-dl">
+<dt>nedlasting</dt><dd><a href="https://inkscape.org/release/">https://inkscape.org/release/</a></dd>
+<dt>lisens</dt><dd><a href="https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html">GPL-2.0</a></dd>
+</dl>
 </div>
-<div id="outline-container-org061d45a" class="outline-2">
-<h2 id="org061d45a">3D-printer</h2>
-</div>
-<div id="outline-container-orgf0b5afe" class="outline-2">
-<h2 id="orgf0b5afe">Laserkutter</h2>
-<div class="outline-text-2" id="text-orgf0b5afe">
-</div>
-<div id="outline-container-org0ac166c" class="outline-3">
-<h3 id="org0ac166c">Sjekkliste</h3>
-<div class="outline-text-3" id="text-org0ac166c">
-<ul class="org-ul">
-<li>Linjetykkelse</li>
-<li></li>
-</ul>
+
+<div id="outline-container-org465cfaa" class="outline-3">
+<h3 id="org465cfaa">svg-filer</h3>
+<div class="outline-text-3" id="text-org465cfaa">
+<p>
+Inkscapes hovedformat er <code>svg</code>-filer. <code>svg</code> er et filformat formatert på mer eller mindre samme måte som nettsider. 
+</p>
+
+<pre class="example">
+&lt;svg version="1.1"
+     baseProfile="full"
+     width="300" height="300"
+     xmlns="http://www.w3.org/2000/svg"&gt;
+  &lt;rect width="100%" height="100%" fill="#2492db" /&gt;
+  &lt;circle cx="50" cy="100" r="80" fill="#ecf0f1" /&gt;
+&lt;/svg&gt;
+</pre>
+
+<p>
+Om vi setter dette inn i et <code>&lt;img&gt;</code>-blokk, får vi direkte ut:
+</p>
+
+<svg version="1.1"
+     baseProfile="full"
+     width="300" height="200"
+     xmlns="http://www.w3.org/2000/svg">
+  <rect width="100%" height="100%" fill="#2492db" />
+  <circle cx="50" cy="100" r="80" fill="#ecf0f1" />
+</svg>
+
+<p>
+Her har vi altså laget en figur med størrelse 300x200, tegnet et regtangel som fyller hele (100 %) bredden og høyden, og tegnet en sirkel som er delvis inni rektangelet.
+</p>
 </div>
 </div>
 </div>
